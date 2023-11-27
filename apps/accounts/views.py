@@ -36,7 +36,7 @@ def register_view(request):
             login(request, user=form.instance)
             return redirect('index')
     else:
-        form = UserCreationForm()
+        form = CustomUserCreationForm()
     return render(request, 'accounts/register.html', {'form': form})
 
 

@@ -24,12 +24,21 @@
                         <li><a class="dropdown-item" href="#" style="color: black;">Something else here</a></li>
                     </ul>
                 </li>
+                {% if not user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link active" href="{% url 'login' %}" tabindex="-1" aria-disabled="true" style="color: black;">Войти</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="{% url 'register' %}" tabindex="-1" aria-disabled="true" style="color: black;">Регистрация</a>
                 </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link active" href="#" tabindex="-1" aria-disabled="true" style="color: black;">Профиль</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'logout' %}" tabindex="-1" aria-disabled="true" style="color: black;">Выйти</a>
+                </li>
+                {% endif %}
             </ul>
             <form class="d-flex" style="margin-right: 100px">
                 <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Search">
