@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Главная{% endblock title %}
+{% block content %}
+<div class="container">
+  <h1 style="display: flex; justify-content: center;">Добро пожаловать!</h1>
+  <h2 style="display: flex; justify-content: center;">Новостной портал</h2>
+  <br>
+  <h3>Все новости</h3>
+</div>
+
+{% for n in news %}
+<br>
+<div class="container">
+  <div style="display: flex; justify-content: space-between">
+  <h3>{{ n.author }}</h3>
+  <p>{{ n.date }}</p>
+  </div>
+  <img src="{{ n.image.url }}" style="height: 300px">
+  <a class="nav-link active" aria-current="page" href="{% url 'detail' n.pk %}" style="color: black;">
+    <h2>{{ n.title }}</h2>
+  </a>
+</div>
+{% endfor %}
+{% endblock content %}
